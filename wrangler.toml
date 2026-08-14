@@ -1,0 +1,32 @@
+name = "arabic-store-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ============================================
+# قاعدة البيانات D1 (مجانية)
+# بعد تنفيذ: npx wrangler d1 create arabic-store-db
+# انسخ database_id الذي سيظهر لك وضعه هنا
+# ============================================
+[[d1_databases]]
+binding = "DB"
+database_name = "arabic-store-db"
+database_id = "PUT-YOUR-DATABASE-ID-HERE"
+
+# ============================================
+# تخزين الملفات R2 (مجاني حتى 10GB)
+# بعد تنفيذ: npx wrangler r2 bucket create arabic-store-files
+# ============================================
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "arabic-store-files"
+
+# ============================================
+# Secrets (لا تضعها هنا، استخدم الأمر التالي بدلاً من ذلك):
+# npx wrangler secret put JWT_SECRET
+# ============================================
+
+[vars]
+STORE_NAME = "متجري"
+DEFAULT_CURRENCY = "YER"
+ENVIRONMENT = "production"
